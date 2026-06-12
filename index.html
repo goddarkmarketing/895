@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>LOVÉE My Foundation SPF50+ | ครีมกันแดดผสมรองพื้น All in 1</title>
+  <meta name="description" content="LOVÉE My Foundation SPF50 PA+++ ครีมกันแดดผสมรองพื้น ตัวเดียวจบ ปกปิด กันแดด บำรุงผิว ส่งฟรี ชำระปลายทางได้">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple-dark: #5c3d7a;
+      --purple-mid: #8b6aab;
+      --purple-light: #e8dff0;
+      --purple-bg: #f5f0f9;
+      --accent: #c45c8a;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(92, 61, 122, 0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Prompt', sans-serif;
+      background: var(--purple-bg);
+      color: #333;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    /* ── Media blocks ── */
+    .block { display: block; width: 100%; vertical-align: top; }
+    .block img { display: block; width: 100%; height: auto; }
+    .block video { display: block; width: 100%; height: auto; background: #000; }
+
+    .section-label {
+      text-align: center;
+      padding: 28px 20px 16px;
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple-mid));
+      color: var(--white);
+    }
+
+    .section-label h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .section-label p {
+      font-size: 0.85rem;
+      opacity: 0.88;
+      margin-top: 4px;
+      font-weight: 300;
+    }
+
+    /* ── Form section ── */
+    .form-section {
+      padding: 40px 24px 52px;
+      background: linear-gradient(160deg, #f0e8f8 0%, #faf7fc 45%, var(--white) 100%);
+    }
+
+    .form-header { text-align: center; margin-bottom: 28px; }
+
+    .form-badge {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #e1306c, var(--accent));
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .form-section h2 {
+      font-size: 1.55rem;
+      color: var(--purple-dark);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .form-section .subtitle {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 8px;
+      font-weight: 400;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .trust-pill {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 12px;
+      border-radius: 50px;
+      background: var(--white);
+      border: 1px solid #e4d8ef;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--purple-dark);
+      box-shadow: 0 2px 8px rgba(92, 61, 122, 0.06);
+    }
+
+    .trust-pill svg { width: 14px; height: 14px; color: var(--purple-mid); flex-shrink: 0; }
+
+    .form-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 32px rgba(92, 61, 122, 0.1);
+      border: 1px solid rgba(212, 196, 228, 0.5);
+    }
+
+    .form-step {
+      margin-bottom: 28px;
+    }
+
+    .form-step:last-of-type { margin-bottom: 0; }
+
+    .step-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--purple-dark);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f0eaf5;
+    }
+
+    .step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple-mid));
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 520px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group:last-child { margin-bottom: 0; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .form-group label span { color: var(--accent); }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: #c4b0d8;
+      pointer-events: none;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid #e8dff0;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: #faf8fc;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+
+    .input-wrap input { padding-left: 42px; }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--purple-mid);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(139, 106, 171, 0.15);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 88px; padding-top: 12px; }
+
+    /* Package cards */
+    .package-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .package-card {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .package-card input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .package-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 2px solid #ebe3f2;
+      border-radius: 14px;
+      background: #faf8fc;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .package-card:has(input:checked) .package-inner {
+      border-color: var(--purple-mid);
+      background: linear-gradient(135deg, #faf5ff, #f3ecfa);
+      box-shadow: 0 4px 16px rgba(139, 106, 171, 0.18);
+    }
+
+    .package-card:has(input:focus-visible) .package-inner {
+      outline: 2px solid var(--purple-mid);
+      outline-offset: 2px;
+    }
+
+    .package-radio {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #d4c4e4;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s;
+    }
+
+    .package-card:has(input:checked) .package-radio {
+      border-color: var(--purple-mid);
+    }
+
+    .package-radio::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--purple-mid);
+      transform: scale(0);
+      transition: transform 0.2s;
+    }
+
+    .package-card:has(input:checked) .package-radio::after {
+      transform: scale(1);
+    }
+
+    .package-info { flex: 1; min-width: 0; }
+
+    .package-qty {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--purple-dark);
+    }
+
+    .package-old {
+      font-size: 0.75rem;
+      color: #aaa;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    .package-gift {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .package-price {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .package-price .price {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      line-height: 1;
+    }
+
+    .package-price .unit {
+      font-size: 0.72rem;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    .package-tag {
+      position: absolute;
+      top: -8px;
+      right: 14px;
+      padding: 3px 10px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #e1306c, var(--accent));
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .package-card.has-tag { padding-top: 6px; }
+
+    .form-error {
+      display: none;
+      font-size: 0.78rem;
+      color: #e1306c;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .form-error.show { display: block; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px 24px;
+      margin-top: 24px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--purple-dark) 0%, #7a5299 50%, var(--purple-mid) 100%);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1.08rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 6px 24px rgba(92, 61, 122, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(92, 61, 122, 0.45); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+    .btn-submit svg { width: 20px; height: 20px; }
+
+    .form-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      color: #aaa;
+      margin-top: 16px;
+    }
+
+    .form-note svg { width: 14px; height: 14px; color: #4caf50; }
+
+    /* ── Floating contact button ── */
+    .fab-wrap {
+      position: fixed;
+      bottom: 24px;
+      right: 16px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .fab-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(12px) scale(0.9);
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+
+    .fab-wrap.open .fab-menu {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .fab-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px 10px 12px;
+      border-radius: 50px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      white-space: nowrap;
+      transition: transform 0.15s;
+    }
+
+    .fab-link:hover { transform: scale(1.04); }
+
+    .fab-link svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .fab-tiktok { background: #010101; }
+    .fab-facebook { background: #1877f2; }
+    .fab-form { background: var(--purple-dark); }
+
+    .fab-main {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #e1306c, var(--purple-dark));
+      color: var(--white);
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(92, 61, 122, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+      animation: pulse 2.5s infinite;
+    }
+
+    .fab-main:hover { transform: scale(1.08); animation: none; }
+    .fab-wrap.open .fab-main { animation: none; background: linear-gradient(135deg, var(--purple-mid), var(--purple-dark)); }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(92, 61, 122, 0.45); }
+      50%      { box-shadow: 0 4px 28px rgba(225, 48, 108, 0.55); }
+    }
+
+    .fab-main svg { width: 26px; height: 26px; transition: transform 0.25s; }
+    .fab-wrap.open .fab-main svg { transform: rotate(45deg); }
+
+    .footer-bar {
+      text-align: center;
+      padding: 16px;
+      font-size: 0.75rem;
+      color: #aaa;
+      background: var(--purple-bg);
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- โปรโมชั่น / Hero -->
+  <div class="block"><img src="line_oa_chat_260612_134738.jpg" alt="LOVÉE กดลงทะเบียน โปรโมชั่นจำกัด" loading="eager"></div>
+
+  <!-- รายละเอียดสินค้า -->
+  <div class="block"><img src="line_oa_chat_260612_134740.jpg" alt="LOVÉE รองพื้นเนื้อบางเบา SPF50 PA+++" loading="lazy"></div>
+  <div class="block"><img src="line_oa_chat_260612_134752.jpg" alt="LOVÉE My Foundation เนื้อครีม Nano" loading="lazy"></div>
+
+  <div class="block">
+    <video src="line_oa_chat_260612_134741.mp4" controls playsinline muted loop poster="line_oa_chat_260612_134752.jpg"></video>
+  </div>
+
+  <div class="block"><img src="line_oa_chat_260612_134755.jpg" alt="รายละเอียดสินค้า MY FOUNDATION" loading="lazy"></div>
+  <div class="block"><img src="line_oa_chat_260612_134756.jpg" alt="ปลอดภัย ไร้สารอันตราย" loading="lazy"></div>
+
+  <!-- ราคาโปรโมชั่น -->
+  <div class="block"><img src="line_oa_chat_260612_134758.jpg" alt="ราคา 229 บาท 1 ชิ้น" loading="lazy"></div>
+  <div class="block"><img src="line_oa_chat_260612_134759.jpg" alt="ราคา 358 บาท 2 ชิ้น แถมฟองน้ำฟรี" loading="lazy"></div>
+  <div class="block"><img src="line_oa_chat_260612_134800.jpg" alt="ราคา 458 บาท 3 ชิ้น แถมฟองน้ำฟรี" loading="lazy"></div>
+
+  <div class="block">
+    <video src="line_oa_chat_260612_134743.mp4" controls playsinline muted loop></video>
+  </div>
+  <div class="block">
+    <video src="line_oa_chat_260612_134753.mp4" controls playsinline muted loop></video>
+  </div>
+
+  <!-- ผลลัพธ์ก่อน-หลัง -->
+  <div class="block"><img src="line_oa_chat_260612_134744.jpg" alt="Before After รีวิวผลลัพธ์" loading="lazy"></div>
+
+  <!-- จัดส่งฟรี -->
+  <div class="block"><img src="line_oa_chat_260612_134804.jpg" alt="จัดส่งฟรี ชำระปลายทางได้" loading="lazy"></div>
+
+  <!-- รีวิวจากลูกค้า -->
+  <div class="section-label">
+    <h2>รีวิวจากลูกค้าจริง</h2>
+    <p>ครีมกันแดดผสมรองพื้น Lovee All in 1</p>
+  </div>
+
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_0.jpg" alt="รีวิวลูกค้า 1" loading="lazy"></div>
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_1.jpg" alt="รีวิวลูกค้า 2" loading="lazy"></div>
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_2.jpg" alt="รีวิวลูกค้า 3" loading="lazy"></div>
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_3.jpg" alt="รีวิวลูกค้า 4" loading="lazy"></div>
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_4.jpg" alt="รีวิวลูกค้า 5" loading="lazy"></div>
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_5.jpg" alt="รีวิวลูกค้า 6" loading="lazy"></div>
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_6.jpg" alt="รีวิวลูกค้า 7" loading="lazy"></div>
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_7.jpg" alt="รีวิวลูกค้า 8" loading="lazy"></div>
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_8.jpg" alt="รีวิวลูกค้า 9" loading="lazy"></div>
+  <div class="block"><img src="review/line_oa_chat_260612_134750_group_9.jpg" alt="รีวิวลูกค้า 10" loading="lazy"></div>
+
+  <!-- LINE QR -->
+  <div class="block"><img src="line_oa_chat_260612_134803.jpg" alt="สแกน LINE เพื่อติดต่อแอดมิน" loading="lazy"></div>
+
+  <!-- แบบฟอร์มสั่งซื้อ -->
+  <section class="form-section" id="order-form">
+    <div class="form-header">
+      <span class="form-badge">โปรพิเศษ จำกัด 99 ท่านแรก</span>
+      <h2>สั่งซื้อ LOVÉE My Foundation</h2>
+      <p class="subtitle">เลือกแพ็กเกจ → กรอกข้อมูล → รอแอดมินติดต่อยืนยันคำสั่งซื้อ</p>
+    </div>
+
+    <div class="trust-row">
+      <span class="trust-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        จัดส่งฟรีทั่วไทย
+      </span>
+      <span class="trust-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        รับประกันคืนเงินหากแพ้
+      </span>
+      <span class="trust-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        ชำระปลายทางได้
+      </span>
+    </div>
+
+    <div class="form-card">
+      <form id="orderForm" novalidate>
+
+        <div class="form-step">
+          <div class="step-title"><span class="step-num">1</span> เลือกแพ็กเกจที่ต้องการ</div>
+          <div class="package-grid">
+            <label class="package-card">
+              <input type="radio" name="package" value="1 ชิ้น|229|390" required>
+              <div class="package-inner">
+                <span class="package-radio"></span>
+                <div class="package-info">
+                  <div class="package-qty">1 ชิ้น <span class="package-old">ปกติ 390.-</span></div>
+                </div>
+                <div class="package-price">
+                  <div class="price">229.-</div>
+                  <div class="unit">บาท</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="package-card has-tag">
+              <input type="radio" name="package" value="2 ชิ้น|358|780">
+              <div class="package-inner">
+                <span class="package-tag">แถมฟองน้ำฟรี</span>
+                <span class="package-radio"></span>
+                <div class="package-info">
+                  <div class="package-qty">2 ชิ้น <span class="package-old">ปกติ 780.-</span></div>
+                  <div class="package-gift">แถมฟองน้ำ S+MIZAR 1 ชิ้น</div>
+                </div>
+                <div class="package-price">
+                  <div class="price">358.-</div>
+                  <div class="unit">บาท</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="package-card has-tag">
+              <input type="radio" name="package" value="3 ชิ้น|458|1170">
+              <div class="package-inner">
+                <span class="package-tag">คุ้มสุด</span>
+                <span class="package-radio"></span>
+                <div class="package-info">
+                  <div class="package-qty">3 ชิ้น <span class="package-old">ปกติ 1,170.-</span></div>
+                  <div class="package-gift">แถมฟองน้ำ S+MIZAR 1 ชิ้น</div>
+                </div>
+                <div class="package-price">
+                  <div class="price">458.-</div>
+                  <div class="unit">บาท</div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-step">
+          <div class="step-title"><span class="step-num">2</span> ข้อมูลติดต่อ</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">ชื่อ-นามสกุล <span>*</span></label>
+              <div class="input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <input type="text" id="name" name="name" placeholder="ชื่อ-นามสกุล" required autocomplete="name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">เบอร์โทรศัพท์ <span>*</span></label>
+              <div class="input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <input type="tel" id="phone" name="phone" placeholder="08x-xxx-xxxx" required autocomplete="tel">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-step">
+          <div class="step-title"><span class="step-num">3</span> ที่อยู่จัดส่ง</div>
+          <div class="form-group">
+            <label for="address">ที่อยู่ <span>*</span></label>
+            <textarea id="address" name="address" placeholder="บ้านเลขที่ ซอย ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์" required></textarea>
+          </div>
+          <div class="form-group" style="margin-top:14px">
+            <label for="note">หมายเหตุ (ถ้ามี)</label>
+            <textarea id="note" name="note" placeholder="เช่น โทรกลับช่วงบ่าย, ฝากไว้หน้าบ้าน..." style="min-height:64px"></textarea>
+          </div>
+        </div>
+
+        <p class="form-error" id="formError">กรุณากรอกข้อมูลให้ครบถ้วนและเลือกแพ็กเกจ</p>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          ยืนยันสั่งซื้อเลย
+        </button>
+
+        <p class="form-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          ข้อมูลของคุณปลอดภัย แอดมินจะติดต่อภายใน 24 ชม.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <div class="footer-bar">© LOVÉE Thailand — My Foundation SPF50+ PA++++</div>
+</div>
+
+<!-- Floating Contact Button -->
+<div class="fab-wrap" id="fabWrap">
+  <div class="fab-menu">
+    <a class="fab-link fab-tiktok" href="https://www.tiktok.com/@lovee.thailand?_r=1&_t=ZS-9774y1VBoaO" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+      TikTok
+    </a>
+    <a class="fab-link fab-facebook" href="https://www.facebook.com/share/1Aq54TpN4y/?mibextid=wwXIfr" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a class="fab-link fab-form" href="#order-form">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      สั่งซื้อ
+    </a>
+  </div>
+  <button class="fab-main" id="fabBtn" aria-label="ติดต่อสอบถาม">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  const fabWrap = document.getElementById('fabWrap');
+  const fabBtn  = document.getElementById('fabBtn');
+
+  fabBtn.addEventListener('click', () => fabWrap.classList.toggle('open'));
+
+  document.addEventListener('click', (e) => {
+    if (!fabWrap.contains(e.target)) fabWrap.classList.remove('open');
+  });
+
+  const form = document.getElementById('orderForm');
+  const formError = document.getElementById('formError');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formError.classList.remove('show');
+
+    const name    = form.name.value.trim();
+    const phone   = form.phone.value.trim();
+    const address = form.address.value.trim();
+    const pkgRadio = form.querySelector('input[name="package"]:checked');
+
+    if (!name || !phone || !address || !pkgRadio) {
+      formError.classList.add('show');
+      formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const [pkgLabel, pkgPrice, pkgOld] = pkgRadio.value.split('|');
+    const orderId = 'LV' + Date.now().toString(36).toUpperCase();
+
+    const order = {
+      id: orderId,
+      name, phone, address,
+      package: pkgLabel,
+      price: pkgPrice,
+      oldPrice: pkgOld,
+      note: form.note.value.trim(),
+      time: new Date().toISOString()
+    };
+
+    const orders = JSON.parse(localStorage.getItem('lovee_orders') || '[]');
+    orders.push(order);
+    localStorage.setItem('lovee_orders', JSON.stringify(orders));
+    sessionStorage.setItem('lovee_last_order', JSON.stringify(order));
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'กำลังส่งคำสั่งซื้อ...';
+
+    setTimeout(() => {
+      window.location.href = 'thank-you.html';
+    }, 600);
+  });
+
+  document.querySelectorAll('video').forEach(v => {
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { v.play().catch(() => {}); }
+      else { v.pause(); }
+    }, { threshold: 0.4 });
+    io.observe(v);
+  });
+</script>
+
+</body>
+</html>
