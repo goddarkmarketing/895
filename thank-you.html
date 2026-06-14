@@ -300,14 +300,14 @@
     <div class="check-wrap">
       <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
-    <h1>สั่งซื้อสำเร็จแล้วค่ะ!</h1>
-    <p>ขอบคุณที่ไว้วางใจ LOVÉE My Foundation<br>แอดมินจะติดต่อยืนยันคำสั่งซื้อโดยเร็วที่สุด</p>
+    <h1 id="heroTitle">สั่งซื้อสำเร็จแล้วค่ะ!</h1>
+    <p id="heroDesc">ขอบคุณที่ไว้วางใจ LOVÉE My Foundation<br>แอดมินจะติดต่อยืนยันคำสั่งซื้อโดยเร็วที่สุด</p>
   </section>
 
   <div class="content">
     <div class="order-card">
       <div class="order-card-header">
-        <span>หมายเลขคำสั่งซื้อ</span>
+        <span id="cardHeaderLabel">หมายเลขคำสั่งซื้อ</span>
         <strong id="orderId">—</strong>
       </div>
       <div class="order-card-body">
@@ -319,12 +319,12 @@
           <span class="label">เบอร์โทร</span>
           <span class="value" id="orderPhone">—</span>
         </div>
-        <div class="order-row">
-          <span class="label">แพ็กเกจ</span>
+        <div class="order-row" id="packageRow">
+          <span class="label" id="packageLabel">แพ็กเกจ</span>
           <span class="value" id="orderPackage">—</span>
         </div>
-        <div class="order-row highlight">
-          <span class="label">ยอดชำระ</span>
+        <div class="order-row highlight" id="priceRow">
+          <span class="label" id="priceLabel">ยอดชำระ</span>
           <span>
             <span class="value" id="orderPrice">—</span>
             <span class="value old" id="orderOldPrice"></span>
@@ -390,16 +390,28 @@
     window.location.href = 'index.html';
   } else {
     const order = JSON.parse(raw);
+    const isRegister = order.type === 'register';
+
+    if (isRegister) {
+      document.getElementById('heroTitle').textContent = 'ลงทะเบียนสำเร็จแล้วค่ะ!';
+      document.getElementById('heroDesc').innerHTML = 'ขอบคุณที่ลงทะเบียนรับสิทธิ์ฟรี<br>แอดมินจะติดต่อแจกคูปองให้โดยเร็วที่สุด';
+      document.getElementById('cardHeaderLabel').textContent = 'หมายเลขลงทะเบียน';
+      document.getElementById('packageLabel').textContent = 'สิทธิ์ที่ได้รับ';
+      document.getElementById('priceRow').style.display = 'none';
+      document.getElementById('addressRow').style.display = 'none';
+    }
 
     document.getElementById('orderId').textContent = order.id;
     document.getElementById('orderName').textContent = order.name;
     document.getElementById('orderPhone').textContent = order.phone;
     document.getElementById('orderPackage').textContent = order.package;
-    document.getElementById('orderPrice').textContent = order.price + '.- บาท';
-    if (order.oldPrice) {
-      document.getElementById('orderOldPrice').textContent = '(ปกติ ' + Number(order.oldPrice).toLocaleString() + '.-)';
+    if (!isRegister) {
+      document.getElementById('orderPrice').textContent = order.price + '.- บาท';
+      if (order.oldPrice) {
+        document.getElementById('orderOldPrice').textContent = '(ปกติ ' + Number(order.oldPrice).toLocaleString() + '.-)';
+      }
+      document.getElementById('orderAddress').textContent = order.address || '—';
     }
-    document.getElementById('orderAddress').textContent = order.address || '—';
   }
 
   const colors = ['#8b6aab', '#c45c8a', '#e1306c', '#5c3d7a', '#d4c4e4'];

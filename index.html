@@ -43,6 +43,157 @@
     .block img { display: block; width: 100%; height: auto; }
     .block video { display: block; width: 100%; height: auto; background: #000; }
 
+    /* ── Register strip ── */
+    .register-strip {
+      padding: 40px 24px 52px;
+      background: linear-gradient(160deg, #6b4d8a 0%, #8b6aab 45%, #a88bc4 100%);
+      text-align: center;
+      color: var(--white);
+    }
+
+    .register-header {
+      margin-bottom: 28px;
+    }
+
+    .register-strip-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .register-strip h3 {
+      font-size: 1.55rem;
+      font-weight: 500;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .register-strip .highlight {
+      color: #ffe082;
+      font-weight: 600;
+    }
+
+    .register-subtitle {
+      font-size: 1rem;
+      opacity: 0.92;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .register-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      text-align: left;
+    }
+
+    .register-form {
+      width: 100%;
+    }
+
+    .register-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 520px) {
+      .register-form-row { grid-template-columns: 1fr; }
+    }
+
+    .register-form-group {
+      margin-bottom: 14px;
+    }
+
+    .register-form-group label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .register-form-group label span {
+      color: var(--accent);
+    }
+
+    .register-form-group input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid #e8dff0;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: #faf8fc;
+      color: #333;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+
+    .register-form-group input:focus {
+      outline: none;
+      border-color: var(--purple-mid);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(139, 106, 171, 0.15);
+    }
+
+    .register-form-error {
+      display: none;
+      font-size: 0.9rem;
+      color: #e1306c;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .register-form-error.show { display: block; }
+
+    .register-strip-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 16px 24px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--purple-dark) 0%, #7a5299 50%, var(--purple-mid) 100%);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1.08rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(92, 61, 122, 0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .register-strip-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(92, 61, 122, 0.45);
+    }
+
+    .register-strip-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .register-strip-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .register-strip-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 0.88rem;
+      opacity: 0.88;
+      text-align: center;
+    }
+
     .section-label {
       text-align: center;
       padding: 28px 20px 16px;
@@ -61,6 +212,182 @@
       opacity: 0.88;
       margin-top: 4px;
       font-weight: 300;
+    }
+
+    /* ── Review grid ── */
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      padding: 6px;
+      background: var(--purple-bg);
+    }
+
+    .review-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    /* ── Price rows ── */
+    .price-section {
+      padding: 32px 20px;
+      background: linear-gradient(180deg, #f5f0f9 0%, var(--white) 100%);
+    }
+
+    .price-section-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .price-section-header h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+    }
+
+    .price-section-header p {
+      font-size: 0.88rem;
+      color: var(--purple-mid);
+      margin-top: 4px;
+    }
+
+    .price-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: stretch;
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #ebe3f2;
+      box-shadow: 0 4px 20px rgba(92, 61, 122, 0.08);
+    }
+
+    .price-row-img {
+      flex: 0 0 42%;
+      max-width: 42%;
+      background: linear-gradient(160deg, #f0e8f8, #faf7fc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .price-row-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .price-row-body {
+      flex: 1;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .price-row-tag {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 4px 12px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #e1306c, var(--accent));
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .price-row-tag.muted {
+      background: var(--purple-light);
+      color: var(--purple-dark);
+    }
+
+    .price-row-product {
+      font-size: 0.92rem;
+      color: var(--purple-mid);
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .price-row-qty {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--purple-dark);
+    }
+
+    .price-row-old {
+      font-size: 0.95rem;
+      color: #bbb;
+      text-decoration: line-through;
+      margin-top: 4px;
+    }
+
+    .price-row-price {
+      margin: 12px 0 10px;
+      line-height: 1;
+    }
+
+    .price-row-price .amount {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+    }
+
+    .price-row-price .currency {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--purple-mid);
+      margin-left: 3px;
+    }
+
+    .price-row-gift {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .price-row-note {
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .price-row-note strong {
+      color: #e1306c;
+      font-weight: 600;
+    }
+
+    @media (max-width: 520px) {
+      .price-section { padding: 24px 14px; }
+
+      .price-row-img {
+        flex: 0 0 38%;
+        max-width: 38%;
+      }
+
+      .price-row-body { padding: 16px 14px; }
+
+      .price-row-price .amount { font-size: 2rem; }
+
+      .price-row-qty { font-size: 1.1rem; }
+
+      .price-row-product { font-size: 0.85rem; }
+
+      .price-row-gift { font-size: 0.88rem; }
+
+      .price-row-note { font-size: 0.8rem; }
     }
 
     /* ── Form section ── */
@@ -495,6 +822,39 @@
   <!-- โปรโมชั่น / Hero -->
   <div class="block"><img src="line_oa_chat_260612_134738.jpg" alt="LOVÉE กดลงทะเบียน โปรโมชั่นจำกัด" loading="eager"></div>
 
+  <!-- ลงทะเบียนรับสิทธิ์ -->
+  <section class="register-strip" id="register-form">
+    <div class="register-header">
+      <div class="register-strip-icon">🎁</div>
+      <h3>ลงทะเบียนเพื่อรับ<span class="highlight">สิทธิ์ฟรี</span></h3>
+      <p class="register-subtitle">มีแจกคูปองให้ฟรีอีกด้วยนะคะ<br>1 คน ต่อ 1 สิทธิ์ · จำนวนจำกัด</p>
+    </div>
+
+    <div class="register-card">
+      <form class="register-form" id="registerForm" novalidate>
+        <div class="register-form-row">
+          <div class="register-form-group">
+            <label for="regName">ชื่อ-นามสกุล <span>*</span></label>
+            <input type="text" id="regName" name="name" placeholder="กรอกชื่อ-นามสกุล" required autocomplete="name">
+          </div>
+          <div class="register-form-group">
+            <label for="regPhone">เบอร์โทรศัพท์ <span>*</span></label>
+            <input type="tel" id="regPhone" name="phone" placeholder="08x-xxx-xxxx" required autocomplete="tel">
+          </div>
+        </div>
+
+        <p class="register-form-error" id="registerError">กรุณากรอกชื่อและเบอร์โทรให้ครบถ้วน</p>
+
+        <button type="submit" class="register-strip-btn" id="registerBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          ยืนยันการลงทะเบียนรับสิทธิ์
+        </button>
+      </form>
+    </div>
+
+    <span class="register-strip-note">ข้อมูลของคุณปลอดภัย แอดมินจะติดต่อภายใน 24 ชม.</span>
+  </section>
+
   <!-- รายละเอียดสินค้า -->
   <div class="block"><img src="line_oa_chat_260612_134740.jpg" alt="LOVÉE รองพื้นเนื้อบางเบา SPF50 PA+++" loading="lazy"></div>
   <div class="block"><img src="line_oa_chat_260612_134752.jpg" alt="LOVÉE My Foundation เนื้อครีม Nano" loading="lazy"></div>
@@ -507,9 +867,66 @@
   <div class="block"><img src="line_oa_chat_260612_134756.jpg" alt="ปลอดภัย ไร้สารอันตราย" loading="lazy"></div>
 
   <!-- ราคาโปรโมชั่น -->
-  <div class="block"><img src="line_oa_chat_260612_134758.jpg" alt="ราคา 229 บาท 1 ชิ้น" loading="lazy"></div>
-  <div class="block"><img src="line_oa_chat_260612_134759.jpg" alt="ราคา 358 บาท 2 ชิ้น แถมฟองน้ำฟรี" loading="lazy"></div>
-  <div class="block"><img src="line_oa_chat_260612_134800.jpg" alt="ราคา 458 บาท 3 ชิ้น แถมฟองน้ำฟรี" loading="lazy"></div>
+  <section class="price-section">
+    <div class="price-section-header">
+      <h2>โปรโมชั่นพิเศษ</h2>
+      <p>LOVÉE My Foundation SPF50+ PA++++</p>
+    </div>
+
+    <div class="price-list">
+
+      <article class="price-row">
+        <div class="price-row-img">
+          <img src="line_oa_chat_260612_134758.jpg" alt="LOVÉE My Foundation 1 ชิ้น" loading="lazy">
+        </div>
+        <div class="price-row-body">
+          <span class="price-row-tag muted">เริ่มต้น</span>
+          <p class="price-row-product">Daily UV Defense Cream<br>SPF50+ PA++++</p>
+          <div class="price-row-qty">1 ชิ้น</div>
+          <div class="price-row-old">ปกติ 390.-</div>
+          <div class="price-row-price">
+            <span class="amount">229.-</span><span class="currency">บาท</span>
+          </div>
+          <p class="price-row-note"><strong>แนะนำสุดคุ้ม</strong> เฉพาะ 99 ท่านแรก เท่านั้น</p>
+        </div>
+      </article>
+
+      <article class="price-row">
+        <div class="price-row-img">
+          <img src="line_oa_chat_260612_134759.jpg" alt="LOVÉE My Foundation 2 ชิ้น" loading="lazy">
+        </div>
+        <div class="price-row-body">
+          <span class="price-row-tag">แถมฟองน้ำฟรี</span>
+          <p class="price-row-product">Daily UV Defense Cream<br>SPF50+ PA++++</p>
+          <div class="price-row-qty">2 ชิ้น</div>
+          <div class="price-row-old">ปกติ 780.-</div>
+          <div class="price-row-price">
+            <span class="amount">358.-</span><span class="currency">บาท</span>
+          </div>
+          <p class="price-row-gift">แถมฟองน้ำ S+MIZAR 1 ชิ้น</p>
+          <p class="price-row-note"><strong>แนะนำสุดคุ้ม</strong> เฉพาะ 99 ท่านแรก เท่านั้น</p>
+        </div>
+      </article>
+
+      <article class="price-row">
+        <div class="price-row-img">
+          <img src="line_oa_chat_260612_134800.jpg" alt="LOVÉE My Foundation 3 ชิ้น" loading="lazy">
+        </div>
+        <div class="price-row-body">
+          <span class="price-row-tag">คุ้มสุด</span>
+          <p class="price-row-product">Daily UV Defense Cream<br>SPF50+ PA++++</p>
+          <div class="price-row-qty">3 ชิ้น</div>
+          <div class="price-row-old">ปกติ 1,170.-</div>
+          <div class="price-row-price">
+            <span class="amount">458.-</span><span class="currency">บาท</span>
+          </div>
+          <p class="price-row-gift">แถมฟองน้ำ S+MIZAR 1 ชิ้น</p>
+          <p class="price-row-note"><strong>แนะนำสุดคุ้ม</strong> เฉพาะ 99 ท่านแรก เท่านั้น</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
 
   <div class="block">
     <video src="line_oa_chat_260612_134743.mp4" controls playsinline muted loop></video>
@@ -530,16 +947,18 @@
     <p>ครีมกันแดดผสมรองพื้น Lovee All in 1</p>
   </div>
 
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_0.jpg" alt="รีวิวลูกค้า 1" loading="lazy"></div>
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_1.jpg" alt="รีวิวลูกค้า 2" loading="lazy"></div>
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_2.jpg" alt="รีวิวลูกค้า 3" loading="lazy"></div>
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_3.jpg" alt="รีวิวลูกค้า 4" loading="lazy"></div>
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_4.jpg" alt="รีวิวลูกค้า 5" loading="lazy"></div>
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_5.jpg" alt="รีวิวลูกค้า 6" loading="lazy"></div>
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_6.jpg" alt="รีวิวลูกค้า 7" loading="lazy"></div>
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_7.jpg" alt="รีวิวลูกค้า 8" loading="lazy"></div>
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_8.jpg" alt="รีวิวลูกค้า 9" loading="lazy"></div>
-  <div class="block"><img src="review/line_oa_chat_260612_134750_group_9.jpg" alt="รีวิวลูกค้า 10" loading="lazy"></div>
+  <div class="review-grid">
+    <img src="review/line_oa_chat_260612_134750_group_0.jpg" alt="รีวิวลูกค้า 1" loading="lazy">
+    <img src="review/line_oa_chat_260612_134750_group_1.jpg" alt="รีวิวลูกค้า 2" loading="lazy">
+    <img src="review/line_oa_chat_260612_134750_group_2.jpg" alt="รีวิวลูกค้า 3" loading="lazy">
+    <img src="review/line_oa_chat_260612_134750_group_3.jpg" alt="รีวิวลูกค้า 4" loading="lazy">
+    <img src="review/line_oa_chat_260612_134750_group_4.jpg" alt="รีวิวลูกค้า 5" loading="lazy">
+    <img src="review/line_oa_chat_260612_134750_group_5.jpg" alt="รีวิวลูกค้า 6" loading="lazy">
+    <img src="review/line_oa_chat_260612_134750_group_6.jpg" alt="รีวิวลูกค้า 7" loading="lazy">
+    <img src="review/line_oa_chat_260612_134750_group_7.jpg" alt="รีวิวลูกค้า 8" loading="lazy">
+    <img src="review/line_oa_chat_260612_134750_group_8.jpg" alt="รีวิวลูกค้า 9" loading="lazy">
+    <img src="review/line_oa_chat_260612_134750_group_9.jpg" alt="รีวิวลูกค้า 10" loading="lazy">
+  </div>
 
   <!-- LINE QR -->
   <div class="block"><img src="line_oa_chat_260612_134803.jpg" alt="สแกน LINE เพื่อติดต่อแอดมิน" loading="lazy"></div>
@@ -704,6 +1123,47 @@
     if (!fabWrap.contains(e.target)) fabWrap.classList.remove('open');
   });
 
+  function saveOrder(order) {
+    const orders = JSON.parse(localStorage.getItem('lovee_orders') || '[]');
+    orders.push(order);
+    localStorage.setItem('lovee_orders', JSON.stringify(orders));
+    sessionStorage.setItem('lovee_last_order', JSON.stringify(order));
+  }
+
+  const registerForm = document.getElementById('registerForm');
+  const registerError = document.getElementById('registerError');
+  const registerBtn = document.getElementById('registerBtn');
+
+  registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    registerError.classList.remove('show');
+
+    const name = registerForm.name.value.trim();
+    const phone = registerForm.phone.value.trim();
+
+    if (!name || !phone) {
+      registerError.classList.add('show');
+      return;
+    }
+
+    const order = {
+      id: 'LV' + Date.now().toString(36).toUpperCase(),
+      type: 'register',
+      name, phone,
+      package: 'ลงทะเบียนรับสิทธิ์ฟรี + คูปอง',
+      price: 'ฟรี',
+      time: new Date().toISOString()
+    };
+
+    saveOrder(order);
+    registerBtn.disabled = true;
+    registerBtn.textContent = 'กำลังส่งข้อมูล...';
+
+    setTimeout(() => {
+      window.location.href = 'thank-you.html';
+    }, 600);
+  });
+
   const form = document.getElementById('orderForm');
   const formError = document.getElementById('formError');
   const submitBtn = document.getElementById('submitBtn');
@@ -728,6 +1188,7 @@
 
     const order = {
       id: orderId,
+      type: 'order',
       name, phone, address,
       package: pkgLabel,
       price: pkgPrice,
@@ -736,10 +1197,7 @@
       time: new Date().toISOString()
     };
 
-    const orders = JSON.parse(localStorage.getItem('lovee_orders') || '[]');
-    orders.push(order);
-    localStorage.setItem('lovee_orders', JSON.stringify(orders));
-    sessionStorage.setItem('lovee_last_order', JSON.stringify(order));
+    saveOrder(order);
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'กำลังส่งคำสั่งซื้อ...';
