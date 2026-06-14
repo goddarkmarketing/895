@@ -398,19 +398,18 @@
       document.getElementById('cardHeaderLabel').textContent = 'หมายเลขลงทะเบียน';
       document.getElementById('packageLabel').textContent = 'สิทธิ์ที่ได้รับ';
       document.getElementById('priceRow').style.display = 'none';
-      document.getElementById('addressRow').style.display = 'none';
     }
 
     document.getElementById('orderId').textContent = order.id;
     document.getElementById('orderName').textContent = order.name;
     document.getElementById('orderPhone').textContent = order.phone;
     document.getElementById('orderPackage').textContent = order.package;
+    document.getElementById('orderAddress').textContent = order.address || '—';
     if (!isRegister) {
       document.getElementById('orderPrice').textContent = order.price + '.- บาท';
       if (order.oldPrice) {
         document.getElementById('orderOldPrice').textContent = '(ปกติ ' + Number(order.oldPrice).toLocaleString() + '.-)';
       }
-      document.getElementById('orderAddress').textContent = order.address || '—';
     }
   }
 
