@@ -828,6 +828,213 @@
       color: #aaa;
       background: var(--purple-bg);
     }
+
+    .footer-bar a {
+      color: var(--purple-mid);
+      text-decoration: none;
+    }
+
+    .footer-bar a:hover { text-decoration: underline; }
+
+    /* ── PDPA ── */
+    .pdpa-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .pdpa-overlay.show { display: flex; }
+
+    .pdpa-box {
+      background: var(--white);
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+      animation: pdpaIn 0.35s ease;
+    }
+
+    .pdpa-box-detail {
+      max-width: 480px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    @keyframes pdpaIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+
+    .pdpa-consent {
+      padding: 28px 24px 24px;
+    }
+
+    .pdpa-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      color: #444;
+      line-height: 1.55;
+    }
+
+    .pdpa-check input {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--purple-mid);
+      cursor: pointer;
+    }
+
+    .pdpa-read-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 0.85rem;
+      color: var(--purple-mid);
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      padding: 0;
+    }
+
+    .pdpa-read-link:hover { color: var(--purple-dark); }
+
+    .pdpa-btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .pdpa-btn {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .pdpa-btn-accept {
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple-mid));
+      color: var(--white);
+    }
+
+    .pdpa-btn-accept:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .pdpa-btn-accept:not(:disabled):hover { transform: translateY(-1px); }
+
+    .pdpa-btn-decline {
+      background: #f5f0f9;
+      color: #888;
+    }
+
+    .pdpa-header {
+      padding: 22px 24px 16px;
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple-mid));
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .pdpa-header h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .pdpa-header p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .pdpa-body {
+      padding: 20px 24px;
+      overflow-y: auto;
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .pdpa-body h3 {
+      font-size: 0.92rem;
+      color: var(--purple-dark);
+      margin: 14px 0 6px;
+      font-weight: 600;
+    }
+
+    .pdpa-body h3:first-child { margin-top: 0; }
+
+    .pdpa-body ul {
+      padding-left: 18px;
+      margin: 6px 0;
+    }
+
+    .pdpa-body li { margin-bottom: 4px; }
+
+    .pdpa-detail-footer {
+      padding: 16px 24px 22px;
+      border-top: 1px solid #f0eaf5;
+      flex-shrink: 0;
+    }
+
+    .pdpa-btn-close {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple-mid));
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .form-pdpa {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 16px 0 4px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .form-pdpa input {
+      width: 17px;
+      height: 17px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--purple-mid);
+      cursor: pointer;
+    }
+
+    .form-pdpa a {
+      color: var(--purple-mid);
+      text-decoration: underline;
+    }
+
+    .register-form .form-pdpa {
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -864,6 +1071,11 @@
         </div>
 
         <p class="register-form-error" id="registerError">กรุณากรอกข้อมูลให้ครบถ้วน</p>
+
+        <label class="form-pdpa">
+          <input type="checkbox" id="regPdpa" required>
+          <span>ข้าพเจ้ายินยอมให้ LOVÉE เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลตาม <a href="#" class="pdpa-link">นโยบายความเป็นส่วนตัว (PDPA)</a></span>
+        </label>
 
         <button type="submit" class="register-strip-btn" id="registerBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
@@ -1094,6 +1306,11 @@
 
         <p class="form-error" id="formError">กรุณากรอกข้อมูลให้ครบถ้วนและเลือกแพ็กเกจ</p>
 
+        <label class="form-pdpa">
+          <input type="checkbox" id="orderPdpa" required>
+          <span>ข้าพเจ้ายินยอมให้ LOVÉE เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลตาม <a href="#" class="pdpa-link">นโยบายความเป็นส่วนตัว (PDPA)</a></span>
+        </label>
+
         <button type="submit" class="btn-submit" id="submitBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           ยืนยันสั่งซื้อเลย
@@ -1107,7 +1324,66 @@
     </div>
   </section>
 
-  <div class="footer-bar">© LOVÉE Thailand — My Foundation SPF50+ PA++++</div>
+  <div class="footer-bar">© LOVÉE Thailand — My Foundation SPF50+ PA++++<br><a href="#" class="pdpa-link">นโยบายความเป็นส่วนตัว (PDPA)</a></div>
+</div>
+
+<!-- PDPA Consent Popup -->
+<div class="pdpa-overlay" id="pdpaOverlay">
+  <div class="pdpa-box">
+    <div class="pdpa-consent">
+      <label class="pdpa-check">
+        <input type="checkbox" id="pdpaAgree">
+        <span>ข้าพเจ้าได้อ่านและยินยอมให้เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลตามนโยบายข้างต้น</span>
+      </label>
+      <button type="button" class="pdpa-read-link" id="pdpaReadBtn">อ่านรายละเอียดนโยบายความเป็นส่วนตัว (PDPA)</button>
+      <div class="pdpa-btns">
+        <button type="button" class="pdpa-btn pdpa-btn-decline" id="pdpaDecline">ปฏิเสธ</button>
+        <button type="button" class="pdpa-btn pdpa-btn-accept" id="pdpaAccept" disabled>ยอมรับ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PDPA Detail Popup -->
+<div class="pdpa-overlay" id="pdpaDetailOverlay">
+  <div class="pdpa-box pdpa-box-detail">
+    <div class="pdpa-header">
+      <h2>นโยบายความเป็นส่วนตัว (PDPA)</h2>
+      <p>พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562</p>
+    </div>
+    <div class="pdpa-body">
+      <h3>ผู้ควบคุมข้อมูลส่วนบุคคล</h3>
+      <p>LOVÉE Thailand (Thirteen Cosmetic) เป็นผู้ควบคุมข้อมูลส่วนบุคคลของท่าน โดยเก็บรวบรวมข้อมูลผ่านเว็บไซต์นี้เพื่อการลงทะเบียน สั่งซื้อสินค้า และติดต่อกลับ</p>
+
+      <h3>ข้อมูลที่เก็บรวบรวม</h3>
+      <ul>
+        <li>ชื่อ-นามสกุล</li>
+        <li>เบอร์โทรศัพท์</li>
+        <li>ที่อยู่จัดส่ง</li>
+        <li>หมายเหตุเพิ่มเติม (ถ้ามี)</li>
+      </ul>
+
+      <h3>วัตถุประสงค์ในการใช้ข้อมูล</h3>
+      <ul>
+        <li>ติดต่อยืนยันคำสั่งซื้อและจัดส่งสินค้า</li>
+        <li>แจ้งโปรโมชั่น สิทธิพิเศษ และคูปองส่วนลด</li>
+        <li>ให้บริการลูกค้าและตอบข้อสอบถาม</li>
+        <li>ปฏิบัติตามกฎหมายที่เกี่ยวข้อง</li>
+      </ul>
+
+      <h3>การเปิดเผยข้อมูล</h3>
+      <p>ข้อมูลของท่านจะถูกใช้ภายใน LOVÉE Thailand เท่านั้น ไม่มีการขายหรือเปิดเผยต่อบุคคลภายนอก เว้นแต่ได้รับความยินยอมจากท่าน หรือเป็นไปตามที่กฎหมายกำหนด</p>
+
+      <h3>ระยะเวลาเก็บรักษา</h3>
+      <p>เก็บรักษาข้อมูลตลอดระยะเวลาที่จำเป็นเพื่อวัตถุประสงค์ข้างต้น หรือตามที่กฎหมายกำหนด</p>
+
+      <h3>สิทธิของเจ้าของข้อมูล</h3>
+      <p>ท่านมีสิทธิขอเข้าถึง แก้ไข ลบ หรือถอนความยินยอมได้ โดยติดต่อแอดมินผ่าน TikTok หรือ Facebook ของ LOVÉE Thailand</p>
+    </div>
+    <div class="pdpa-detail-footer">
+      <button type="button" class="pdpa-btn-close" id="pdpaDetailClose">ปิด</button>
+    </div>
+  </div>
 </div>
 
 <!-- Floating Contact Button -->
@@ -1150,20 +1426,110 @@
     sessionStorage.setItem('lovee_last_order', JSON.stringify(order));
   }
 
+  const FORM_EMAIL = 'vasimes.work@gmail.com';
+
+  async function sendToEmail(order) {
+    const typeLabel = order.type === 'register' ? 'ลงทะเบียนรับสิทธิ์' : 'สั่งซื้อสินค้า';
+    const payload = {
+      _subject: `[LOVÉE] ${typeLabel} - ${order.name}`,
+      _template: 'table',
+      _captcha: 'false',
+      'หมายเลข': order.id,
+      'ประเภท': typeLabel,
+      'ชื่อ-นามสกุล': order.name,
+      'เบอร์โทร': order.phone,
+      'ที่อยู่': order.address || '-',
+      'แพ็กเกจ': order.package,
+      'ราคา': order.price + (order.oldPrice ? ' (ปกติ ' + Number(order.oldPrice).toLocaleString() + '.-)' : ''),
+      'หมายเหตุ': order.note || '-',
+      'เวลา': new Date(order.time).toLocaleString('th-TH')
+    };
+
+    const res = await fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) throw new Error('send failed');
+    return res.json();
+  }
+
+  /* ── PDPA ── */
+  const pdpaOverlay = document.getElementById('pdpaOverlay');
+  const pdpaDetailOverlay = document.getElementById('pdpaDetailOverlay');
+  const pdpaAgree = document.getElementById('pdpaAgree');
+  const pdpaAccept = document.getElementById('pdpaAccept');
+  const pdpaDecline = document.getElementById('pdpaDecline');
+  const PDPA_KEY = 'lovee_pdpa_accepted';
+
+  function openPdpa() {
+    pdpaOverlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePdpa() {
+    pdpaOverlay.classList.remove('show');
+    if (!pdpaDetailOverlay.classList.contains('show')) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  function openPdpaDetail() {
+    pdpaDetailOverlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePdpaDetail() {
+    pdpaDetailOverlay.classList.remove('show');
+    if (!pdpaOverlay.classList.contains('show')) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  pdpaAgree.addEventListener('change', () => {
+    pdpaAccept.disabled = !pdpaAgree.checked;
+  });
+
+  pdpaAccept.addEventListener('click', () => {
+    localStorage.setItem(PDPA_KEY, 'true');
+    closePdpa();
+    document.querySelectorAll('#regPdpa, #orderPdpa').forEach(cb => { cb.checked = true; });
+  });
+
+  pdpaDecline.addEventListener('click', closePdpa);
+
+  document.getElementById('pdpaReadBtn').addEventListener('click', openPdpaDetail);
+  document.getElementById('pdpaDetailClose').addEventListener('click', closePdpaDetail);
+
+  document.querySelectorAll('.pdpa-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPdpaDetail();
+    });
+  });
+
+  if (!localStorage.getItem(PDPA_KEY)) {
+    setTimeout(openPdpa, 800);
+  }
+
   const registerForm = document.getElementById('registerForm');
   const registerError = document.getElementById('registerError');
   const registerBtn = document.getElementById('registerBtn');
 
-  registerForm.addEventListener('submit', (e) => {
+  registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     registerError.classList.remove('show');
 
     const name = registerForm.name.value.trim();
     const phone = registerForm.phone.value.trim();
     const address = registerForm.address.value.trim();
+    const pdpaOk = document.getElementById('regPdpa').checked;
 
-    if (!name || !phone || !address) {
+    if (!name || !phone || !address || !pdpaOk) {
       registerError.classList.add('show');
+      if (!pdpaOk) registerError.textContent = 'กรุณายอมรับนโยบายความเป็นส่วนตัว (PDPA)';
+      else registerError.textContent = 'กรุณากรอกข้อมูลให้ครบถ้วน';
       return;
     }
 
@@ -1176,20 +1542,26 @@
       time: new Date().toISOString()
     };
 
-    saveOrder(order);
     registerBtn.disabled = true;
     registerBtn.textContent = 'กำลังส่งข้อมูล...';
 
-    setTimeout(() => {
+    try {
+      await sendToEmail(order);
+      saveOrder(order);
       window.location.href = 'thank-you.html';
-    }, 600);
+    } catch {
+      registerBtn.disabled = false;
+      registerBtn.textContent = 'ยืนยันการลงทะเบียนรับสิทธิ์';
+      registerError.textContent = 'ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง';
+      registerError.classList.add('show');
+    }
   });
 
   const form = document.getElementById('orderForm');
   const formError = document.getElementById('formError');
   const submitBtn = document.getElementById('submitBtn');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     formError.classList.remove('show');
 
@@ -1197,9 +1569,12 @@
     const phone   = form.phone.value.trim();
     const address = form.address.value.trim();
     const pkgRadio = form.querySelector('input[name="package"]:checked');
+    const pdpaOk = document.getElementById('orderPdpa').checked;
 
-    if (!name || !phone || !address || !pkgRadio) {
+    if (!name || !phone || !address || !pkgRadio || !pdpaOk) {
       formError.classList.add('show');
+      if (!pdpaOk) formError.textContent = 'กรุณายอมรับนโยบายความเป็นส่วนตัว (PDPA)';
+      else formError.textContent = 'กรุณากรอกข้อมูลให้ครบถ้วนและเลือกแพ็กเกจ';
       formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
@@ -1218,14 +1593,20 @@
       time: new Date().toISOString()
     };
 
-    saveOrder(order);
-
     submitBtn.disabled = true;
     submitBtn.textContent = 'กำลังส่งคำสั่งซื้อ...';
 
-    setTimeout(() => {
+    try {
+      await sendToEmail(order);
+      saveOrder(order);
       window.location.href = 'thank-you.html';
-    }, 600);
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'ยืนยันสั่งซื้อเลย';
+      formError.textContent = 'ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง';
+      formError.classList.add('show');
+      formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   });
 
   document.querySelectorAll('video').forEach(v => {
