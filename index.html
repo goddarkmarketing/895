@@ -1423,8 +1423,10 @@
       return;
     }
 
+    const orderId = 'LV' + Date.now().toString(36).toUpperCase();
     const order = {
-      id: 'LV' + Date.now().toString(36).toUpperCase(),
+      id: orderId,
+      event_id: orderId,
       type: 'register',
       name, phone, address,
       package: 'ลงทะเบียนรับสิทธิ์ฟรี + คูปอง',

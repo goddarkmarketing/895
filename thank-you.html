@@ -429,14 +429,17 @@
       }
     }
 
-    // Facebook Pixel conversion (once per order)
+    // Facebook Pixel conversion + eventID for CAPI deduplication
     const trackedKey = 'lovee_fb_tracked_' + order.id;
     if (typeof fbq === 'function' && !sessionStorage.getItem(trackedKey)) {
+      // event_id ต้องตรงกับ CAPI (event_id) เพื่อให้ Meta รวมเป็น conversion เดียว
+      const eventId = String(order.event_id || order.id);
+
       if (isRegister) {
         fbq('track', 'CompleteRegistration', {
           content_name: order.package,
           status: true
-        });
+        }, { eventID: eventId });
       } else {
         const value = Number(order.price) || 0;
         fbq('track', 'Purchase', {
@@ -445,9 +448,10 @@
           content_name: order.package,
           content_type: 'product',
           order_id: order.id
-        });
+        }, { eventID: eventId });
       }
       sessionStorage.setItem(trackedKey, '1');
+      sessionStorage.setItem('lovee_last_event_id', eventId);
     }
   }
 
