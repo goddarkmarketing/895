@@ -179,6 +179,287 @@
 
     .register-form-error.show { display: block; }
 
+    /* ── Product picker ── */
+    .product-picker {
+      margin: 18px 0 8px;
+      padding-top: 16px;
+      border-top: 1px solid #f0eaf5;
+    }
+
+    .product-picker-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--purple-dark);
+      margin-bottom: 4px;
+    }
+
+    .product-picker-sub {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .product-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .product-option {
+      position: relative;
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 2px solid #ebe3f2;
+      border-radius: 14px;
+      background: #faf8fc;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .product-option:hover {
+      border-color: #d4c4e4;
+    }
+
+    .product-option.is-selected {
+      border-color: var(--purple-mid);
+      background: linear-gradient(135deg, #faf5ff, #f3ecfa);
+      box-shadow: 0 4px 14px rgba(139, 106, 171, 0.15);
+    }
+
+    .product-option.is-selected::after {
+      content: '✓';
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--purple-mid);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      z-index: 1;
+    }
+
+    .product-option input.product-check {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+
+    .product-option img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid #efe8f5;
+    }
+
+    .product-option-info {
+      min-width: 0;
+      text-align: left;
+    }
+
+    .product-option-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--purple-dark);
+      line-height: 1.35;
+    }
+
+    .product-option-old {
+      font-size: 0.78rem;
+      color: #999;
+      text-decoration: line-through;
+      margin-top: 3px;
+    }
+
+    .product-option-price {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #e1306c;
+      margin-top: 2px;
+    }
+
+    .product-option-price span {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #999;
+      margin-left: 2px;
+    }
+
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: #fff;
+      border: 1.5px solid #e0d4ec;
+      border-radius: 10px;
+      overflow: hidden;
+      opacity: 0.4;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      margin-right: 4px;
+    }
+
+    .product-option.is-selected .qty-control {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      color: var(--purple-dark);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      line-height: 1;
+    }
+
+    .qty-btn:hover { background: #f5f0f9; }
+
+    .qty-value {
+      width: 28px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      -moz-appearance: textfield;
+    }
+
+    .qty-value::-webkit-outer-spin-button,
+    .qty-value::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    @media (max-width: 420px) {
+      .product-option {
+        grid-template-columns: 64px 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .product-option .qty-control {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 2px;
+      }
+
+      .product-option.is-selected::after {
+        top: 6px;
+        left: 6px;
+      }
+    }
+
+    .order-summary {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f8f3fc, #f3ecfa);
+      border: 1px solid #e4d8ef;
+    }
+
+    .order-summary-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--purple-mid);
+      margin-bottom: 8px;
+    }
+
+    .order-summary-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
+      min-height: 24px;
+    }
+
+    .order-summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: #555;
+    }
+
+    .order-summary-empty {
+      font-size: 0.82rem;
+      color: #aaa;
+    }
+
+    .order-summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 10px;
+      border-top: 1px dashed #d8cce6;
+      font-weight: 600;
+      color: var(--purple-dark);
+    }
+
+    .order-summary-total .total-amount {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #e1306c;
+    }
+
+    .order-summary-total .total-amount small {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .order-summary-pay {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed #d8cce6;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .order-summary-pay-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      background: #fff;
+      border: 1.5px solid var(--purple-mid);
+      border-radius: 999px;
+      padding: 5px 12px;
+      white-space: nowrap;
+    }
+
+    .order-summary-pay-note {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: #888;
+      line-height: 1.45;
+      text-align: center;
+    }
+
     .register-strip-btn {
       display: flex;
       align-items: center;
@@ -1087,12 +1368,65 @@
           <textarea id="regAddress" name="address" placeholder="บ้านเลขที่ ซอย ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์" required></textarea>
         </div>
 
-        <p class="register-form-error" id="registerError">กรุณากรอกข้อมูลให้ครบถ้วน</p>
+        <div class="product-picker" id="productPicker">
+          <div class="product-picker-title">เลือกสินค้าโปรโมชั่นส่วนลด</div>
+          <p class="product-picker-sub">กดที่การ์ดเพื่อเลือก และปรับจำนวนได้มากกว่า 1 ชิ้น</p>
+
+          <div class="product-options">
+            <div class="product-option" role="button" tabindex="0" aria-pressed="false" data-id="foundation" data-name="Love My Foundation SPF50PA+++" data-price="119" data-old-price="289">
+              <input type="checkbox" class="product-check" name="product_foundation" tabindex="-1" aria-hidden="true">
+              <img src="product-foundation.jpg" alt="Love My Foundation SPF50PA+++">
+              <div class="product-option-info">
+                <div class="product-option-name">Love My Foundation SPF50PA+++</div>
+                <div class="product-option-old">ปกติ 289.-</div>
+                <div class="product-option-price">119.-<span> / ชิ้น</span></div>
+              </div>
+              <div class="qty-control">
+                <button type="button" class="qty-btn qty-minus" aria-label="ลดจำนวน">−</button>
+                <input type="number" class="qty-value" value="1" min="1" max="99" readonly tabindex="-1">
+                <button type="button" class="qty-btn qty-plus" aria-label="เพิ่มจำนวน">+</button>
+              </div>
+            </div>
+
+            <div class="product-option" role="button" tabindex="0" aria-pressed="false" data-id="serum" data-name="PDRN Repair Serum" data-price="119" data-old-price="289">
+              <input type="checkbox" class="product-check" name="product_serum" tabindex="-1" aria-hidden="true">
+              <img src="product-serum.png" alt="PDRN Repair Serum">
+              <div class="product-option-info">
+                <div class="product-option-name">PDRN Repair Serum</div>
+                <div class="product-option-old">ปกติ 289.-</div>
+                <div class="product-option-price">119.-<span> / ชิ้น</span></div>
+              </div>
+              <div class="qty-control">
+                <button type="button" class="qty-btn qty-minus" aria-label="ลดจำนวน">−</button>
+                <input type="number" class="qty-value" value="1" min="1" max="99" readonly tabindex="-1">
+                <button type="button" class="qty-btn qty-plus" aria-label="เพิ่มจำนวน">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-summary">
+            <div class="order-summary-title">สรุปออเดอร์</div>
+            <div class="order-summary-lines" id="orderSummaryLines">
+              <div class="order-summary-empty">ยังไม่ได้เลือกสินค้า</div>
+            </div>
+            <div class="order-summary-total">
+              <span>ยอดที่ต้องชำระ</span>
+              <span class="total-amount" id="orderTotalAmount">0.- <small>บาท</small></span>
+            </div>
+            <div class="order-summary-pay">
+              <span>วิธีชำระเงิน</span>
+              <span class="order-summary-pay-badge">ชำระเงินปลายทาง</span>
+            </div>
+            <p class="order-summary-pay-note">ลูกค้าชำระเงินเมื่อได้รับสินค้าเท่านั้น ไม่ต้องโอนล่วงหน้า</p>
+          </div>
+        </div>
 
         <label class="form-pdpa">
           <input type="checkbox" id="regPdpa" required>
           <span>ข้าพเจ้ายินยอมให้ LOVÉE เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลตาม <a href="#" class="pdpa-link">นโยบายความเป็นส่วนตัว (PDPA)</a></span>
         </label>
+
+        <p class="register-form-error" id="registerError">กรุณากรอกข้อมูลให้ครบถ้วน</p>
 
         <button type="submit" class="register-strip-btn" id="registerBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
@@ -1107,6 +1441,7 @@
   <!-- รายละเอียดสินค้า -->
   <div class="block"><img src="feature-skin-tone.jpg" alt="LOVÉE ครีมกันแดด นวัตกรรมนาโนไฮบริด ใช้ได้กับทุกสีผิว" loading="lazy"></div>
   <div class="block"><img src="feature-allinone.jpg" alt="ครีมกันแดด LOVÉE ตัวเดียวจบ ปกป้อง ปกปิด บำรุง" loading="lazy"></div>
+  <div class="block"><img src="feature-pdrn-serum.jpg" alt="เจาะลึกสารสกัดสำคัญ Lovee PDRN Repair Skin ฟื้นบำรุงผิว ชุ่มชื้น เรียบเนียน" loading="lazy"></div>
 
   <div class="block">
     <video src="video-1.mp4" controls playsinline muted loop poster="feature-allinone.jpg"></video>
@@ -1330,7 +1665,11 @@
       'เบอร์โทร': order.phone,
       'ที่อยู่': order.address || '-',
       'แพ็กเกจ': order.package,
-      'ราคา': order.price + (order.oldPrice ? ' (ปกติ ' + Number(order.oldPrice).toLocaleString() + '.-)' : ''),
+      'รายการสินค้า': (order.items && order.items.length)
+        ? order.items.map(i => i.name + ' x' + i.qty + ' (' + (i.price * i.qty).toLocaleString() + '.-)').join(', ')
+        : '-',
+      'ราคา': (typeof order.price === 'number' ? order.price.toLocaleString() + '.-' : order.price)
+        + (order.oldPrice ? ' (ปกติ ' + Number(order.oldPrice).toLocaleString() + '.-)' : ''),
       'หมายเหตุ': order.note || '-',
       'เวลา': new Date(order.time).toLocaleString('th-TH')
     };
@@ -1403,6 +1742,97 @@
     setTimeout(openPdpa, 800);
   }
 
+  /* ── Product picker ── */
+  const productOptions = document.querySelectorAll('.product-option');
+  const orderSummaryLines = document.getElementById('orderSummaryLines');
+  const orderTotalAmount = document.getElementById('orderTotalAmount');
+
+  function getSelectedItems() {
+    const items = [];
+    productOptions.forEach(opt => {
+      const checked = opt.querySelector('.product-check').checked;
+      if (!checked) return;
+      const qty = Math.max(1, parseInt(opt.querySelector('.qty-value').value, 10) || 1);
+      const price = Number(opt.dataset.price) || 0;
+      items.push({
+        id: opt.dataset.id,
+        name: opt.dataset.name,
+        price,
+        qty,
+        lineTotal: price * qty
+      });
+    });
+    return items;
+  }
+
+  function updateOrderSummary() {
+    const items = getSelectedItems();
+    const total = items.reduce((sum, i) => sum + i.lineTotal, 0);
+
+    if (!items.length) {
+      orderSummaryLines.innerHTML = '<div class="order-summary-empty">ยังไม่ได้เลือกสินค้า</div>';
+    } else {
+      orderSummaryLines.innerHTML = items.map(i =>
+        `<div class="order-summary-line"><span>${i.name} × ${i.qty}</span><span>${i.lineTotal.toLocaleString()}.-</span></div>`
+      ).join('');
+    }
+    orderTotalAmount.innerHTML = total.toLocaleString() + '.- <small>บาท</small>';
+  }
+
+  productOptions.forEach(opt => {
+    const check = opt.querySelector('.product-check');
+    const qtyInput = opt.querySelector('.qty-value');
+    const minus = opt.querySelector('.qty-minus');
+    const plus = opt.querySelector('.qty-plus');
+    const qtyControl = opt.querySelector('.qty-control');
+
+    const syncSelected = () => {
+      const on = check.checked;
+      opt.classList.toggle('is-selected', on);
+      opt.setAttribute('aria-pressed', on ? 'true' : 'false');
+      updateOrderSummary();
+    };
+
+    const toggleSelect = () => {
+      check.checked = !check.checked;
+      syncSelected();
+    };
+
+    opt.addEventListener('click', (e) => {
+      if (e.target.closest('.qty-control')) return;
+      toggleSelect();
+    });
+
+    opt.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleSelect();
+      }
+    });
+
+    qtyControl.addEventListener('click', (e) => e.stopPropagation());
+
+    minus.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const n = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
+      qtyInput.value = n;
+      if (!check.checked) { check.checked = true; }
+      syncSelected();
+    });
+
+    plus.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const n = Math.min(99, (parseInt(qtyInput.value, 10) || 1) + 1);
+      qtyInput.value = n;
+      if (!check.checked) { check.checked = true; }
+      syncSelected();
+    });
+  });
+
+  updateOrderSummary();
+
   const registerForm = document.getElementById('registerForm');
   const registerError = document.getElementById('registerError');
   const registerBtn = document.getElementById('registerBtn');
@@ -1415,10 +1845,13 @@
     const phone = registerForm.phone.value.trim();
     const address = registerForm.address.value.trim();
     const pdpaOk = document.getElementById('regPdpa').checked;
+    const items = getSelectedItems();
+    const total = items.reduce((sum, i) => sum + i.lineTotal, 0);
 
-    if (!name || !phone || !address || !pdpaOk) {
+    if (!name || !phone || !address || !pdpaOk || !items.length) {
       registerError.classList.add('show');
       if (!pdpaOk) registerError.textContent = 'กรุณายอมรับนโยบายความเป็นส่วนตัว (PDPA)';
+      else if (!items.length) registerError.textContent = 'กรุณาเลือกสินค้าอย่างน้อย 1 รายการ';
       else registerError.textContent = 'กรุณากรอกข้อมูลให้ครบถ้วน';
       return;
     }
@@ -1429,8 +1862,9 @@
       event_id: orderId,
       type: 'register',
       name, phone, address,
-      package: 'ลงทะเบียนรับสิทธิ์ฟรี + คูปอง',
-      price: 'ฟรี',
+      items,
+      package: 'ส่วนลดพิเศษ',
+      price: total,
       time: new Date().toISOString()
     };
 

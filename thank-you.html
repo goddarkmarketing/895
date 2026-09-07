@@ -111,6 +111,26 @@
       animation: fadeUp 0.5s 0.35s both;
     }
 
+    .hero-notice {
+      margin: 0 auto 16px;
+      max-width: 420px;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #5c3d7a;
+      line-height: 1.75;
+      letter-spacing: 0.01em;
+      animation: fadeUp 0.5s 0.15s both;
+    }
+
+    .hero-notice .discount {
+      display: block;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #c41e3a;
+      margin: 4px 0;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -317,6 +337,11 @@
     <div class="check-wrap">
       <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
+    <p class="hero-notice" id="heroNotice" hidden>
+      ขอบคุณที่ลงทะเบียนรับสิทธิ์<br>
+      <span class="discount">ส่วนลด 60%</span>
+      สินค้าจะจัดส่งภายใน 1-3 วัน
+    </p>
     <h1 id="heroTitle">สั่งซื้อสำเร็จแล้วค่ะ!</h1>
     <p id="heroDesc">ขอบคุณที่ไว้วางใจ LOVÉE My Foundation<br>แอดมินจะติดต่อยืนยันคำสั่งซื้อโดยเร็วที่สุด</p>
   </section>
@@ -340,12 +365,20 @@
           <span class="label" id="packageLabel">แพ็กเกจ</span>
           <span class="value" id="orderPackage">—</span>
         </div>
+        <div class="order-row" id="itemsRow" style="display:none">
+          <span class="label">สินค้าที่เลือก</span>
+          <span class="value" id="orderItems">—</span>
+        </div>
         <div class="order-row highlight" id="priceRow">
           <span class="label" id="priceLabel">ยอดชำระ</span>
           <span>
             <span class="value" id="orderPrice">—</span>
             <span class="value old" id="orderOldPrice"></span>
           </span>
+        </div>
+        <div class="order-row" id="payRow" style="display:none">
+          <span class="label">วิธีชำระเงิน</span>
+          <span class="value" id="orderPay">ชำระเงินปลายทาง</span>
         </div>
         <div class="order-row" id="addressRow">
           <span class="label">ที่อยู่จัดส่ง</span>
@@ -368,7 +401,7 @@
           <span class="step-icon">📦</span>
           <div class="step-text">
             <strong>จัดส่งฟรีทั่วไทย</strong>
-            <span>ชำระเงินปลายทางเมื่อได้รับสินค้า</span>
+            <span>สินค้าจะจัดส่งภายใน 1-3 วัน · ชำระเงินปลายทาง</span>
           </div>
         </li>
         <li class="step-item">
@@ -410,23 +443,37 @@
     const isRegister = order.type === 'register';
 
     if (isRegister) {
+      document.getElementById('heroNotice').hidden = false;
       document.getElementById('heroTitle').textContent = 'ลงทะเบียนสำเร็จแล้วค่ะ!';
-      document.getElementById('heroDesc').innerHTML = 'ขอบคุณที่ลงทะเบียนรับสิทธิ์ฟรี<br>แอดมินจะติดต่อแจกคูปองให้โดยเร็วที่สุด';
+      document.getElementById('heroDesc').style.display = 'none';
       document.getElementById('cardHeaderLabel').textContent = 'หมายเลขลงทะเบียน';
       document.getElementById('packageLabel').textContent = 'สิทธิ์ที่ได้รับ';
-      document.getElementById('priceRow').style.display = 'none';
+      document.getElementById('orderPackage').textContent = 'ส่วนลดพิเศษ';
+      document.getElementById('payRow').style.display = '';
+    } else {
+      document.getElementById('orderPackage').textContent = order.package;
     }
 
     document.getElementById('orderId').textContent = order.id;
     document.getElementById('orderName').textContent = order.name;
     document.getElementById('orderPhone').textContent = order.phone;
-    document.getElementById('orderPackage').textContent = order.package;
     document.getElementById('orderAddress').textContent = order.address || '—';
-    if (!isRegister) {
-      document.getElementById('orderPrice').textContent = order.price + '.- บาท';
+
+    if (order.items && order.items.length) {
+      document.getElementById('itemsRow').style.display = '';
+      document.getElementById('orderItems').textContent = order.items
+        .map(i => i.name + ' × ' + i.qty)
+        .join(', ');
+    }
+
+    const priceNum = Number(order.price);
+    if (!Number.isNaN(priceNum) && order.price !== 'ฟรี' && order.price !== '') {
+      document.getElementById('orderPrice').textContent = priceNum.toLocaleString() + '.- บาท';
       if (order.oldPrice) {
         document.getElementById('orderOldPrice').textContent = '(ปกติ ' + Number(order.oldPrice).toLocaleString() + '.-)';
       }
+    } else if (isRegister) {
+      document.getElementById('priceRow').style.display = 'none';
     }
 
     // Facebook Pixel conversion + eventID for CAPI deduplication
@@ -434,14 +481,16 @@
     if (typeof fbq === 'function' && !sessionStorage.getItem(trackedKey)) {
       // event_id ต้องตรงกับ CAPI (event_id) เพื่อให้ Meta รวมเป็น conversion เดียว
       const eventId = String(order.event_id || order.id);
+      const value = Number(order.price) || 0;
 
       if (isRegister) {
         fbq('track', 'CompleteRegistration', {
           content_name: order.package,
-          status: true
+          status: true,
+          value: value,
+          currency: 'THB'
         }, { eventID: eventId });
       } else {
-        const value = Number(order.price) || 0;
         fbq('track', 'Purchase', {
           value: value,
           currency: 'THB',
@@ -450,6 +499,7 @@
           order_id: order.id
         }, { eventID: eventId });
       }
+
       sessionStorage.setItem(trackedKey, '1');
       sessionStorage.setItem('lovee_last_event_id', eventId);
     }
